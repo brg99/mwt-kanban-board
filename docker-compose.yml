@@ -12,6 +12,8 @@ services:
       - POSTGRES_DB=db
       - POSTGRES_USER=username
       - POSTGRES_PASSWORD=password
+    networks:
+      - mwt-network
 
   backend:
     build: backend
@@ -27,6 +29,8 @@ services:
       - postgres
     depends_on:
       - postgres
+    networks:
+      - mwt-network
 
   frontend:
     build: frontend
@@ -37,7 +41,13 @@ services:
       - backend
     depends_on:
       - backend
+    networks:
+      - mwt-network
 
 
 volumes:
   data:
+
+networks:
+    mwt-network:
+        driver: bridge
