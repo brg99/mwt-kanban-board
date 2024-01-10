@@ -9,9 +9,9 @@
 		<relativePath/>
 	</parent>
 	<groupId>com.hft.mwt</groupId>
-	<artifactId>kanban-app</artifactId>
+	<artifactId>backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>kanban-app</name>
+	<name>backend</name>
 	<description>Backend app for Kanban app</description>
 
 	<properties>
