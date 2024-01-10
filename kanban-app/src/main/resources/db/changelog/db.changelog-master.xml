@@ -7,6 +7,15 @@
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     <changeSet id="1" author="Fabian">
+        <sqlFile path="00_init_clear.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="true"/>
+
+        <comment>Drop all tables</comment>
+    </changeSet>
+
+    <changeSet id="2" author="Fabian">
         <sqlFile path="01_init_kanban.sql"
                  relativeToChangelogFile="true"
                  splitStatements="true"
@@ -15,7 +24,7 @@
         <comment>Create table with Kanaban info</comment>
     </changeSet>
 
-    <changeSet id="2" author="Fabian">
+    <changeSet id="3" author="Fabian">
         <sqlFile path="02_init_task.sql"
                  relativeToChangelogFile="true"
                  splitStatements="true"
@@ -24,7 +33,7 @@
         <comment>Create table with task info</comment>
     </changeSet>
 
-    <changeSet id="3" author="Fabian">
+    <changeSet id="4" author="Fabian">
         <sqlFile path="03_kanban_column.sql"
                  relativeToChangelogFile="true"
                  splitStatements="true"
@@ -33,7 +42,7 @@
         <comment>Add kanban_id column to task table</comment>
     </changeSet>
 
-    <changeSet id="4" author="Fabian">
+    <changeSet id="5" author="Fabian">
         <sqlFile path="04_task_status.sql"
                  relativeToChangelogFile="true"
                  splitStatements="true"
