@@ -1,0 +1,53 @@
+version: '3'
+services:
+
+  postgres:
+    image: "postgres:9.6-alpine"
+    container_name: mwt-postgres
+    volumes:
+      - data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=db
+      - POSTGRES_USER=username
+      - POSTGRES_PASSWORD=password
+    networks:
+      - mwt-network
+
+  backend:
+    build: backend
+    container_name: mwt-backend
+    environment:
+      - DB_SERVER=postgres
+      - POSTGRES_DB=db
+      - POSTGRES_USER=username
+      - POSTGRES_PASSWORD=password
+    ports:
+      - "8080:8080"
+    links:
+      - postgres
+    depends_on:
+      - postgres
+    networks:
+      - mwt-network
+
+  frontend:
+    build: frontend
+    container_name: mwt-frontend
+    ports:
+      - "4200:80"
+    links:
+      - backend
+    depends_on:
+      - backend
+    networks:
+      - mwt-network
+
+
+volumes:
+  data:
+
+networks:
+    mwt-network:
+        driver: bridge
