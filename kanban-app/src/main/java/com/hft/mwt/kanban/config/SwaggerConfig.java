@@ -32,7 +32,7 @@ public class SwaggerConfig {
                 "This is a REST API of Kanban REST API, where you can get/add/remove/modify Kanban board and its task.",
                 "v1",
                 "Terms of service",
-                new Contact("Wojtek Krzywiec", "www.github.com/wkrzywiec", ""),
+                new Contact("Fabian", "https://gitlab.rz.hft-stuttgart.de/31brfa1dpt", ""),
                 "License of API", "API license URL", Collections.emptyList()
         );
     }
